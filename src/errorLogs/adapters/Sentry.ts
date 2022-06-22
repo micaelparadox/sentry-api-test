@@ -1,4 +1,4 @@
-import { ErrorLogSentryAdapter } from "./ErrorLogSentryAdapter";
+import { ErrorLogSentryAdapter } from "./error-log-sentry-adapter";
 
 
 

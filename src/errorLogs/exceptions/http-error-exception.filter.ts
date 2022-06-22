@@ -1,6 +1,6 @@
 import { ExceptionFilter, Catch, ArgumentsHost, HttpException, BadRequestException, Injectable } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { ErrorLog } from '../interfaces/ErrorLog';
+import { ErrorLogger } from '../interfaces/error-logger.interface';
 // import { ErrorLog } from '../interfaces/ErrorLog'
 
 enum UserResponse {
@@ -11,7 +11,7 @@ enum UserResponse {
   @Catch(Error, HttpException, BadRequestException)
   export class HttpExceptionFilter implements ExceptionFilter 
   {
-    constructor(private errorLog: ErrorLog){
+    constructor(private errorLog: ErrorLogger){
 
     }
   catch(exception: HttpException, host: ArgumentsHost) {
@@ -25,7 +25,7 @@ enum UserResponse {
 
     console.log(exception)
 
-    this.errorLog.sendLog()
+    this.errorLog.sendLog(exception)
     if (exception.getStatus() === UserResponse.UnAuthorized || exception.getStatus() === UserResponse.notFound) {
       console.log("entrou gostoso")
       return response

@@ -1,4 +1,4 @@
-import { LogData } from "../interfaces/LogData";
+import { LogData } from "../interfaces/log-data.interface";
 
 export class ErrorLogDataAdapter implements LogData {
 

@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
-import { ErrorLogSentryAdapter } from './adapters/ErrorLogSentryAdapter';
-import { ErrorLog } from './interfaces/ErrorLog';
+import { ErrorLogSentryAdapter } from './adapters/error-log-sentry-adapter';
+import { ErrorLogger } from './interfaces/error-logger.interface';
 
 
 @Module({
     providers: [
-        { provide: ErrorLog, useClass: ErrorLogSentryAdapter }
+        { provide: ErrorLogger, useClass: ErrorLogSentryAdapter }
     ],
     exports: [
-        ErrorLog
+        ErrorLogger
     ]
 })
 export class ErrorLogSentryModule {}

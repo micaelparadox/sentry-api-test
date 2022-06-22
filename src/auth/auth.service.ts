@@ -1,11 +1,11 @@
 import { HttpException, Injectable } from '@nestjs/common';
-import { ErrorLogSentryAdapter } from 'src/errorLogs/adapters/ErrorLogSentryAdapter';
-import { ErrorLog } from 'src/errorLogs/interfaces/ErrorLog';
-import { LogData } from 'src/errorLogs/interfaces/LogData'
+import { ErrorLogSentryAdapter } from 'src/errorLogs/adapters/error-log-sentry-adapter';
+import { ErrorLogger } from 'src/errorLogs/interfaces/error-logger.interface';
+import { LogData } from 'src/errorLogs/interfaces/log-data.interface'
 
 @Injectable()
 export class AuthService extends HttpException {
-  constructor(private errorLog: ErrorLog) {
+  constructor(private errorLog: ErrorLogger) {
     super('Unauthorized', 401);
   }
 
