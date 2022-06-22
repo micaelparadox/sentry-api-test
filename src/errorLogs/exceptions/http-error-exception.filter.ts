@@ -9,11 +9,13 @@ enum UserResponse {
   }
   @Injectable()
   @Catch(Error, HttpException, BadRequestException)
-  export class HttpExceptionFilter implements ExceptionFilter 
-  {
-    constructor(private errorLog: ErrorLogger){
+  export class HttpExceptionFilter implements ExceptionFilter
 
+  {
+    constructor(private errorLogger: ErrorLogger){
+      //estou injetando a dependencia do errorlogger usando this.errorLogger.sendLog(exception) que é de fato a exception em sí.
     }
+    
   catch(exception: HttpException, host: ArgumentsHost) {
     
     // console.log('na root')
@@ -25,7 +27,8 @@ enum UserResponse {
 
     console.log(exception)
 
-    this.errorLog.sendLog(exception)
+    this.errorLogger.sendLog(exception)
+
     if (exception.getStatus() === UserResponse.UnAuthorized || exception.getStatus() === UserResponse.notFound) {
       console.log("entrou gostoso")
       return response

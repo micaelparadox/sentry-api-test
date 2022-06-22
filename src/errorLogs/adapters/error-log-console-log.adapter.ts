@@ -1,12 +1,11 @@
-// import { HttpException, Injectable } from "@nestjs/common";
-// import { InjectSentry, SentryService } from "@ntegral/nestjs-sentry";
-// import { Scope } from "@sentry/node";
-// import { ErrorLog } from "../interfaces/ErrorLog"
-// import { LogData } from "../interfaces/LogData";
+import { Injectable } from "@nestjs/common";
+import { ErrorLogger } from "../interfaces/error-logger.interface";
+import { LogData } from "../interfaces/log-data.interface";
 
 
-// @Injectable()
-// export class ErrorLogConsoleLogAdapter extends ErrorLog 
-// {
-    
-// }
+@Injectable()
+export class ErrorLogConsoleLogAdapter implements ErrorLogger {
+    sendLog(logData: LogData): void {
+        console.log(logData)
+    }
+}
