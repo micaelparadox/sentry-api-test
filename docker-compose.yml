@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  app:
+    user: root
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - '3000:3000'
+    command: sh -c "npm install && npm build && npm start:dev"
+    depends_on:
+      - db_local
+    environment:
+      NODE_ENV: development
+      APPLICATION_ENV: dev
+
+      DB_HOST: db_local
+      DB_PORT: 5432
+      DB_USER: admin
+      DB_PASSWORD: password
+      DB_NAME: postgres
+      DB_DATABASE: postgres
+      DB_SCHEMA_NAME: public
+      DB_MIGRATIONS_USER: admin
+      DB_MIGRATIONS_PASSWORD: password
+
+  db_local:
+    user: root
+    image: postgres
+    ports:
+      - '5432:5432'
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
