@@ -1,11 +1,13 @@
 import { Injectable } from "@nestjs/common";
-import { ErrorLogger } from "../interfaces/error-logger.interface";
+import { ErrorLogger } from "../error-logger";
+import { LogAdapter } from "../interfaces/log-adapter.interface";
 import { LogData } from "../interfaces/log-data.interface";
 
 
 @Injectable()
-export class ErrorLogConsoleLogAdapter implements ErrorLogger {
-    sendLog(logData: LogData): void {
-        console.log(logData)
+export class ConsoleLoggerAdapter implements LogAdapter {
+    async log(logData: LogData){
+        console.log("opa", logData.message);
     }
+
 }

@@ -13,7 +13,7 @@ export class AuthController {
     // return this.authService.login(userLogin);
     //gerando um error
     // console.log('gerando error')
-    return res.status(404).json()
+    return res.status(200).json()
   }
 
 }

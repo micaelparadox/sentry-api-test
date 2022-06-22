@@ -1,6 +1,6 @@
 import { ExceptionFilter, Catch, ArgumentsHost, HttpException, BadRequestException, Injectable } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { ErrorLogger } from '../interfaces/error-logger.interface';
+import { ErrorLogger } from '../error-logger';
 // import { ErrorLog } from '../interfaces/ErrorLog'
 
 enum UserResponse {
@@ -25,12 +25,14 @@ enum UserResponse {
     const request = ctx.getRequest<Request>();
     const status = exception.getStatus();
 
-    console.log(exception)
+    // console.log(exception)
 
+    // console.log(exception)
     this.errorLogger.sendLog(exception)
 
     if (exception.getStatus() === UserResponse.UnAuthorized || exception.getStatus() === UserResponse.notFound) {
-      console.log("entrou gostoso")
+      console.log("entrou no if irmão")
+      // console.log(response)
       return response
         .status(status)
         .json({

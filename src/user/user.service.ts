@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectSentry, SentryService } from '@ntegral/nestjs-sentry';
 import { Scope } from '@sentry/node';
-import { ErrorLogSentryAdapter } from 'src/errorLogs/adapters/error-log-sentry-adapter';
-import { ErrorLogger } from 'src/errorLogs/interfaces/error-logger.interface';
+import { SentryLoggerAdapter } from 'src/errorLogs/adapters/error-log-sentry-adapter';
+import { ErrorLogger } from 'src/errorLogs/error-logger';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
