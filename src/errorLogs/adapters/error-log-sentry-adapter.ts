@@ -26,6 +26,7 @@ export class SentryLoggerAdapter implements LogAdapter {
             timestamp: new Date().getTime()
           });
         // this.sentry.instance().captureMessage(logData.message, () => scope);
+        // this.sentry.instance().captureException(logData.message)
 
     }
 }

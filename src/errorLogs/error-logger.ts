@@ -7,16 +7,19 @@ type AcceptbleLogServices = SentryLoggerAdapter | ConsoleLoggerAdapter
 
 @Injectable()
 export class ErrorLogger {
-    constructor(private sentryLoggerAdapter: SentryLoggerAdapter, private consoleLoggerAdapter: ConsoleLoggerAdapter){
+    constructor(private sentryLoggerAdapter: SentryLoggerAdapter, private consoleLoggerAdapter: ConsoleLoggerAdapter) {
 
     }
-    private LogServices: AcceptbleLogServices [] = [this.sentryLoggerAdapter, this.consoleLoggerAdapter]
-    async sendLog(error: Error){
-        await Promise.all(this.LogServices.map(async (LogService) => {
-            return LogService.log(this.convertToLogData(error));
-        }))
+
+    private LogServices: AcceptbleLogServices[] = [this.sentryLoggerAdapter, this.consoleLoggerAdapter]
+    sendLog(error: Error) {
+        this.LogServices.forEach((LogService) => {
+            LogService.log(this.convertToLogData(error));
+        })
     }
+
     private convertToLogData(error: Error): LogData {
         return error
     }
+
 }
