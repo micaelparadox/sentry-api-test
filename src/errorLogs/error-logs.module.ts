@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
-import { SentryModule } from '@ntegral/nestjs-sentry';
 import { ConsoleLoggerAdapter } from './adapters/error-log-console-log.adapter';
-import { SentryLoggerAdapter } from './adapters/error-log-sentry-adapter';
+import { SentryLoggerAdapter } from './adapters/sentry-logger.adapter';
 import { ErrorLogger } from './error-logger';
 
 
 @Module({
-    imports: [SentryModule],
+    imports: [],
     providers: [
         //qualquer outra Classe que tiver usando errorlogger, favor usar o ErrorLogSentryAdapter
         
@@ -18,4 +17,5 @@ import { ErrorLogger } from './error-logger';
         ErrorLogger
     ]
 })
-export class ErrorLogSentryModule {}
+
+export class ErrorLoggerModule {}

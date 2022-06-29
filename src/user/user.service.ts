@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { InjectSentry, SentryService } from '@ntegral/nestjs-sentry';
+// import { InjectSentry, SentryService } from '@ntegral/nestjs-sentry';
 import { Scope } from '@sentry/node';
-import { SentryLoggerAdapter } from 'src/errorLogs/adapters/error-log-sentry-adapter';
+import { SentryLoggerAdapter } from 'src/errorLogs/adapters/sentry-logger.adapter';
 import { ErrorLogger } from 'src/errorLogs/error-logger';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -10,7 +10,6 @@ import { UpdateUserDto } from './dto/update-user.dto';
 @Injectable()
 export class UserService {
   constructor(
-    @InjectSentry() private readonly sentry: SentryService,
     private readonly errorLog: ErrorLogger
   ) { }
 

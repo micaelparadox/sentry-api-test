@@ -1,5 +1,5 @@
 import { HttpException, Injectable } from '@nestjs/common';
-import { SentryLoggerAdapter } from 'src/errorLogs/adapters/error-log-sentry-adapter';
+import { SentryLoggerAdapter } from 'src/errorLogs/adapters/sentry-logger.adapter';
 import { ErrorLogger } from 'src/errorLogs/error-logger';
 import { LogData } from 'src/errorLogs/interfaces/log-data.interface'
 

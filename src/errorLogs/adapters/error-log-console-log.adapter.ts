@@ -9,5 +9,4 @@ export class ConsoleLoggerAdapter implements LogAdapter {
     async log(logData: LogData){
         console.log("opa", logData.message);
     }
-
 }

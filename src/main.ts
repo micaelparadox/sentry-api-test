@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { SentryService } from '@ntegral/nestjs-sentry';
+// import { SentryService } from '@ntegral/nestjs-sentry';
 import { AppModule } from './app.module';
 
 async function bootstrap() {

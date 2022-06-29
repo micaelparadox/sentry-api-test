@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { ConsoleLoggerAdapter } from "./adapters/error-log-console-log.adapter";
-import { SentryLoggerAdapter } from "./adapters/error-log-sentry-adapter";
+import { SentryLoggerAdapter } from "./adapters/sentry-logger.adapter";
 import { LogData } from "./interfaces/log-data.interface";
 
 type AcceptbleLogServices = SentryLoggerAdapter | ConsoleLoggerAdapter
