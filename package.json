@@ -27,7 +27,6 @@
     "@nestjs/passport": "^8.2.2",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/typeorm": "^8.1.4",
-    "@ntegral/nestjs-sentry": "^3.0.7",
     "@sentry/node": "^6.9.0",
     "bcrypt": "^5.0.1",
     "passport": "^0.6.0",
