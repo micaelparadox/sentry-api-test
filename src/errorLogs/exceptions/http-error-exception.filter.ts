@@ -1,7 +1,6 @@
 import { ExceptionFilter, Catch, ArgumentsHost, HttpException, BadRequestException, Injectable } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { ErrorLogger } from '../error-logger';
-// import { ErrorLog } from '../interfaces/ErrorLog'
 
 enum UserResponse {
     notFound = 404,
@@ -23,11 +22,15 @@ enum UserResponse {
 
     const response = ctx.getResponse<Response>();
     const request = ctx.getRequest<Request>();
+    console.debug(exception)
     const status = exception.getStatus();
 
-    // console.log(exception)
+    
 
-    // console.log(exception)
+  
+
+    // console.log(exception.getStatus())
+
     this.errorLogger.sendLog(exception)
 
     if (exception.getStatus() === UserResponse.UnAuthorized || exception.getStatus() === UserResponse.notFound) {

@@ -1,5 +1,4 @@
 import {
-    BaseEntity,
     Entity,
     Unique,
     PrimaryGeneratedColumn,
@@ -10,7 +9,7 @@ import {
   
   @Entity()
   @Unique(['email'])
-  export class User extends BaseEntity {
+  export class User{
     @PrimaryGeneratedColumn('uuid')
     id: string;
   

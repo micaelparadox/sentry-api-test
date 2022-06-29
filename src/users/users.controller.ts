@@ -2,6 +2,7 @@ import { Controller, Post, Body } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UsersService } from './users.service';
 import { ReturnUserDto } from './dtos/return-user.dto';
+import { CreateAdminUserRequestDto } from './dtos/create-admin-user-request.dto';
 
 @Controller('users')
 export class UsersController {
@@ -9,11 +10,11 @@ export class UsersController {
 
   @Post()
   async createAdminUser(
-    @Body() createUserDto: CreateUserDto,
+    @Body() user: CreateAdminUserRequestDto,
   ): Promise<ReturnUserDto> {
-    const user = await this.usersService.createAdminUser(createUserDto);
+    const newUser = await this.usersService.createAdminUser(user);
     return {
-      user,
+      user: newUser,
       message: 'Administrador cadastrado com sucesso',
     };
   }
