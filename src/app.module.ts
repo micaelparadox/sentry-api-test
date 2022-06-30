@@ -6,8 +6,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './configs/typeorm.config';
 import { UsersModule } from './users/users.module';
 import { APP_FILTER } from '@nestjs/core';
-import { HttpExceptionFilter } from './errorLogs/exceptions/http-error-exception.filter';
 import { ErrorLoggerModule } from './errorLogs/error-logs.module';
+import { CustomExceptionFilter } from './errorLogs/exceptions/custom-exception.filter';
 
 @Module({
   imports: [TypeOrmModule.forRoot(typeOrmConfig),
@@ -19,7 +19,7 @@ import { ErrorLoggerModule } from './errorLogs/error-logs.module';
   controllers: [AppController],
   providers: [AppService, {
     provide: APP_FILTER,
-    useClass: HttpExceptionFilter,
+    useClass: CustomExceptionFilter
   }],
 })
 export class AppModule { }
