@@ -19,30 +19,29 @@ enum UserResponse {
     
     // console.log('na root')
     const ctx = host.switchToHttp();
-
+    
     const response = ctx.getResponse<Response>();
     const request = ctx.getRequest<Request>();
     console.debug(exception)
     const status = exception.getStatus();
-
     
-
-  
-
-    // console.log(exception.getStatus())
-
-    this.errorLogger.sendLog(exception)
-
-    if (exception.getStatus() === UserResponse.UnAuthorized || exception.getStatus() === UserResponse.notFound) {
-      console.log("entrou no if irmão")
-      // console.log(response)
-      return response
-        .status(status)
-        .json({
-          statusCode: status,
-          timestamp: new Date().toISOString(),
-          path: request.url,
-        });
+    if (exception.getStatus() != UserResponse.UnAuthorized && exception.getStatus() != UserResponse.notFound) {
+      this.errorLogger.sendLog(exception)
+     
     }
+    // console.log(exception.getStatus())
+    // console.log("entrou no if irmão")
+    // // console.log(response)
+    return response
+    .status(status)
+    // .json({
+    //     statusCode: status,
+    //     timestamp: new Date().toISOString(),
+    //     path: request.url,
+    //   });
+    
+    
+    
+    
   }
 }
