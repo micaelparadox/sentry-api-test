@@ -1,5 +1,4 @@
 import { Injectable } from "@nestjs/common";
-import { ErrorLogger } from "../error-logger";
 import { LogAdapter } from "../interfaces/log-adapter.interface";
 import { LogData } from "../interfaces/log-data.interface";
 
