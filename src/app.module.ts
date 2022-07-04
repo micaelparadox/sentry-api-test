@@ -6,8 +6,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './configs/typeorm.config';
 import { UsersModule } from './users/users.module';
 import { APP_FILTER } from '@nestjs/core';
-import { ErrorLoggerModule } from './errorLogs/error-logs.module';
-import { CustomExceptionFilter } from './errorLogs/exceptions/custom-exception.filter';
+import { ErrorLoggerModule } from './error-logs/error-logger.module';
+import { CustomExceptionFilter } from './error-logs/exceptions/custom-exception.filter';
 
 @Module({
   imports: [TypeOrmModule.forRoot(typeOrmConfig),
