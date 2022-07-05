@@ -1,5 +1,5 @@
-import { LogData } from "./log-data.interface";
+import { BaseException } from "../base-exception";
 
 export interface LogAdapter {
-    log(logData: LogData): Promise<void>;
+    log(baseException: BaseException): Promise<void>;
 }
