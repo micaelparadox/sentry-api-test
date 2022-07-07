@@ -7,9 +7,4 @@ export class BaseException extends Error {
     super(message);
     this.severity = severity;
   }
-
-//   type INFO = APPINFO & LOGINFO 
-//   type ERROR =  RangeError & EvalError
-//   type WARN =  
-
 }
